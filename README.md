@@ -161,16 +161,3 @@ The table below shows the transitions for the regex `(.)\1*` on the input `"heee
 
 Groups produced: `h(1)`, `eee(3)`, `ll(2)`, `ooo(3)`
 
----
-
-## 6. Deterministic or Non-Deterministic?
-
-**This is a Deterministic Finite Automaton (DFA).**
-
-Here is why:
-
-- **Every state has exactly one transition per input symbol.** In q0, any character moves to q1. In q1, the same character stays in q1, and any different character restarts to q0. There is never a choice between two paths.
-- **No ε-transitions.** The automaton never moves without consuming a character (the ε shown in the table above just means end-of-input, not a real transition).
-- **No ambiguity.** Given a string, there is exactly one path through the states — the machine's next state is always fully determined by the current state and the current character.
-
-A Non-Deterministic Finite Automaton (NFA) would allow multiple possible next states for the same input, or ε-transitions that move without reading input. This FSA has neither property, so it is deterministic.
